@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Signup | Skinfinity</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script defer src="cart.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Skinfinity</a>
+            <div class="nav-links">
+                <a href="serum.html">Serums</a>
+                <a href="moisturizer.html">Moisturizers</a>
+                <a href="#"><i class="fas fa-user"></i></a>
+                <a href="cart.html">Cart 🛒 <span id="cart-count">0</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="login-container">
+        <div class="form-box">
+            <div class="form-header">
+                <img src="logo.png" alt="Skinfinity Logo" class="logo">
+                <h2>Login / Signup</h2>
+                <p>FLAT 15% OFF + FREE GIFTS</p>
+            </div>
+
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <input type="tel" id="phone" name="phone" placeholder="Enter Mobile Number" required>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="notifications" name="notifications" checked>
+                        <label for="notifications">Notify me for any updates & offers</label>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Submit</button>
+                <p class="terms">I accept that I have read & understood Gokwik's <a href="#">Privacy Policy</a> and <a href="#">T&Cs</a></p>
+                <p class="trouble-text"><a href="#">Trouble logging in?</a></p>
+            </form>
+
+            <div class="benefits">
+                <div class="benefit-item">
+                    <span class="icon">✨</span>
+                    <div class="benefit-text">
+                        <h3>Ships within 24 Hours</h3>
+                        <p>Priority delivery on Prepaid Orders</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <span class="icon">🎁</span>
+                    <div class="benefit-text">
+                        <h3>Exclusive Offers and Gifts</h3>
+                        <p>Get the best deals and limited edition gifts</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <span class="icon">🔒</span>
+                    <div class="benefit-text">
+                        <h3>100% Purchase Protection</h3>
+                        <p>Secured payments and encrypted shopping data</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
