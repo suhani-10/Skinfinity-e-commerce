@@ -111,7 +111,7 @@ function showFirstOrderBanner() {
         </div>
     `;
     banner.style.cssText = `
-        background-color:  #F5F5DC;
+        background-color: #BA867B;
         color: white;
         text-align: center;
         padding: 10px;
