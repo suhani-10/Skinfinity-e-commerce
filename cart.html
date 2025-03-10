@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart | Skinfinity</title>
+    <link rel="stylesheet" href="cart.css">
+    <script defer src="cart.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">Skinfinity</a>
+                <p class="tagline">Unleash Your Infinite Glow</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="serum.html">Serums</a></li>
+                    <li><a href="moisturizer.html">Moisturizers</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="cart-container">
+        <div class="cart-header">
+            <h2>Your Shopping Cart</h2>
+            <button id="clear-cart" class="btn">Clear Cart</button>
+        </div>
+
+        <div id="cart-content">
+            <div id="cart-items"></div>
+            
+            <div class="cart-summary">
+                <div class="summary-section">
+                    <div class="cart-total">
+                        <span>Total:</span>
+                        <span>₹<span id="cart-total">0</span></span>
+                    </div>
+                    <div class="cart-actions">
+                        <a href="index.html" class="btn continue-shopping">Continue Shopping</a>
+                        <a href="checkout.html" class="btn checkout-btn">Proceed to Checkout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="empty-cart" class="empty-cart" style="display: none;">
+            <p>Your cart is empty</p>
+            <a href="index.html" class="btn continue-shopping">Continue Shopping</a>
+        </div>
+    </section>
+</body>
+</html>

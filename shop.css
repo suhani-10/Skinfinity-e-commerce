@@ -1,0 +1,168 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background:beige;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #e00975;
+    padding: 15px 50px;
+    color: beige;
+    position: relative;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: beige;
+    font-weight: bold;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background:beige;
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    display: flex;
+    gap: 30px;
+    width: 400px;
+}
+
+.menu-column h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #e00975;
+}
+
+.menu-column a {
+    display: block;
+    color: black;
+    text-decoration: none;
+    padding: 5px 0;
+    font-size: 14px;
+}
+
+.menu-column a:hover {
+    color: #e00975;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+    display: flex;
+}
+
+/* Icons */
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icons input {
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+.cart-icon {
+    background: beige;
+    color: #e00975;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 50px;
+    background: url('https://via.placeholder.com/1000x400') no-repeat center center/cover;
+    color: beige;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #e00975;
+    color: beige;
+    margin-top: 20px;
+}
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 15px;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #e00975;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .nav-links li {
+        padding: 10px;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .dropdown-menu {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
