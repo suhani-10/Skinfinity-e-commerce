@@ -109,6 +109,9 @@ h2 {
     transition: background 0.3s ease-in-out;
 }
 
+.btn-primary-add-to-cart{
+    background-color:#BA867B;
+}
 .btn-primary:hover {
     background-color: #e44d26;
 }
