@@ -5,14 +5,126 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skinfinity - Unleash Your Infinite Glow</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home1.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <script defer src="cart.js"></script>
+    <style>
+        /* Ensures smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Rest of the existing code remains the same -->
+
+    <!-- Navigation Bar -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="#">Skinfinity</a>
+                <p class="tagline">Unleash Your Infinite Glow</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="serum.html">Serums</a></li>
+                    <li><a href="moisturizer.html">Moisturizers</a></li>
+                    <li><a href="#">Find Your Match</a></li>
+                    <li><a href="#">Rewards</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+            <div class="right-nav">
+                <a href="#">Login</a>
+                <a href="cart.html">Cart 🛒 <span id="cart-count">0</span></a>
+            </div>
+        </div>
+    </header>
+
+
+
+
+    <!-- Side Pop-up Menu
+    <div id="shopMenu" class="shop-menu">
+        <span class="close-btn" onclick="closeShopMenu()">×</span>
+        <h2>Shop by Category</h2>
+        <ul>
+            <li><a href="sunscreen.html">Sunscreen</a></li>
+            <li><a href="serum.html">Serum</a></li>
+            <li><a href="moisturizer.html">Moisturizer</a></li>
+            <li><a href="cleanser.html">Cleanser</a></li>
+            <li><a href="lipcare.html">Lip Care</a></li>
+        </ul>
+    </div>
+
+    <script src="script.js"></script> -->
+
+
+
+
+
+    <!-- Hero Section (Image Slider - simplified for now) -->
+    <section class="hero">
+        <div class="hero-image">
+            <img src="image.jpg" alt="">
+        </div>
+        <div class="hero-text">
+            <h1> Skincare & Makeup</h1>
+            <p>Discover the beauty of natural ingredients.</p>
+            <a href="#featured" class="shop-button">Shop Now</a> <!-- Updated for smooth scrolling -->
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section id="featured" class="featured-categories"> <!-- Added id="featured" -->
+        <h2>Featured</h2>
+        <div class="category-grid">
+            <div class="category-item">
+                <img src="moisturizer.webp" alt="Moisturizers">
+                <h3>Moisturizers</h3>
+                <a href="moisturizer.html" class="shop-btn">Shop Now</a>
+            </div>
+            <div class="category-item">
+                <img src="cleanser.webp" alt="Cleansers">
+                <h3>Cleansers</h3>
+                <a href="cleanser.html" class="shop-btn">Shop Now</a>
+            </div>
+            <div class="category-item">
+                <img src="serum.webp" alt="Serums">
+                <h3>Serums</h3>
+                <a href="serum.html" class="shop-btn">Shop Now</a>
+            </div>
+        </div>
+    </section>
+
+
+  <!-- Bestsellers Section -->
+<section class="bestsellers-section">
+    <h2>Bestsellers</h2>
+
+    <!-- Category Buttons -->
+    <div class="category-buttons">
+        <button class="category-btn active" data-category="sunscreen">Sunscreens</button>
+        <button class="category-btn" data-category="moisturizer">Moisturizers</button>
+        <button class="category-btn" data-category="cleanser">Cleansers</button>
+        <button class="category-btn" data-category="serum">Serums</button>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="product-grid">
+        <!-- Products will be inserted dynamically via JavaScript -->
+    </div>
+</section>
+
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Skinfinity. All Rights Reserved.</p>
+    </footer>
+
 </body>
-</html> 
+
+</html>
