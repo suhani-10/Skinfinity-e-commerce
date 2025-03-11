@@ -120,20 +120,16 @@ function showFirstOrderBanner() {
     `;
     document.body.insertBefore(banner, document.body.firstChild);
 }
-
-// Show notification function
 function showNotification(message) {
-    // Create notification element
     const notification = document.createElement('div');
     notification.className = 'cart-notification';
     notification.textContent = message;
     
-    // Add styles to notification
     notification.style.cssText = `
         position: fixed;
         top: 20px;
         right: 20px;
-        background-color: #694C45;
+        background-color: #4CAF50;
         color: white;
         padding: 15px 25px;
         border-radius: 5px;
@@ -141,7 +137,6 @@ function showNotification(message) {
         animation: slideIn 0.5s ease-out;
     `;
 
-    // Add animation keyframes
     const style = document.createElement('style');
     style.textContent = `
         @keyframes slideIn {
@@ -157,10 +152,8 @@ function showNotification(message) {
     `;
     document.head.appendChild(style);
 
-    // Add to document
     document.body.appendChild(notification);
 
-    // Remove after 3 seconds
     setTimeout(() => {
         notification.style.animation = 'slideIn 0.5s ease-out reverse';
         setTimeout(() => {
@@ -181,17 +174,9 @@ function updateCartCount() {
 function updateCartUI() {
     updateCartCount();
     
-    // Update cart page if we're on it
-    if (document.getElementById('cart-items')) {
-        updateCartPage();
-    }
-}
-
-function updateCartPage() {
     const cartItemsContainer = document.getElementById('cart-items');
     const cartContent = document.getElementById('cart-content');
     const emptyCartMessage = document.getElementById('empty-cart');
-    const cartTotal = document.getElementById('cart-total');
     
     if (!cartItemsContainer) return;
     
@@ -214,76 +199,54 @@ function updateCartPage() {
         const listItem = document.createElement('div');
         listItem.classList.add('cart-item');
         listItem.innerHTML = `
+            <img src="${item.image}" alt="${item.name}" class="cart-item-image">
             <div class="item-details">
-                <img src="${item.image}" alt="${item.name}" class="cart-item-image">
-                <div class="item-info">
-                    <h4>${item.name}</h4>
-                    <p class="price">₹${item.price}</p>
+                <h4>${item.name}</h4>
+                <div class="item-price">₹${item.price}</div>
+                <div class="quantity-controls">
+                    <button class="quantity-btn minus" data-index="${index}">-</button>
+                    <span class="quantity">${item.quantity}</span>
+                    <button class="quantity-btn plus" data-index="${index}">+</button>
                 </div>
-            </div>
-            <div class="quantity-controls">
-                <button class="quantity-btn minus" data-index="${index}">-</button>
-                <span class="quantity">${item.quantity}</span>
-                <button class="quantity-btn plus" data-index="${index}">+</button>
-            </div>
-            <div class="item-total">
-                ₹${itemTotal.toFixed(2)}
             </div>
             <button class="remove-btn" data-index="${index}">×</button>
         `;
         cartItemsContainer.appendChild(listItem);
     });
 
-    // Apply first order discount if applicable
-    let total = subtotal;
-    const discountSection = document.createElement('div');
-    discountSection.className = 'cart-summary-section';
-    
-    if (isFirstOrder && subtotal > 0) {
-        const discount = subtotal * 0.1; // 10% discount
-        total = subtotal - discount;
-        
-        discountSection.innerHTML = `
-            <div class="summary-row">
-                <span>Subtotal:</span>
-                <span>₹${subtotal.toFixed(2)}</span>
-            </div>
-            <div class="summary-row discount">
-                <span>First Order Discount (10%):</span>
-                <span>-₹${discount.toFixed(2)}</span>
-            </div>
-            <div class="summary-row total">
-                <span>Final Total:</span>
-                <span>₹${total.toFixed(2)}</span>
-            </div>
-            <div class="cart-actions">
-                <a href="home1.html" class="btn continue-shopping">Continue Shopping</a>
-                <a href="checkout.html" class="btn checkout-btn">Proceed to Checkout</a>
-            </div>
-        `;
-    } else {
-        discountSection.innerHTML = `
-            <div class="summary-row total">
-                <span>Total:</span>
-                <span>₹${total.toFixed(2)}</span>
-            </div>
-            <div class="cart-actions">
-                <a href="home1.html" class="btn continue-shopping">Continue Shopping</a>
-                <a href="checkout.html" class="btn checkout-btn">Proceed to Checkout</a>
-            </div>
-        `;
-    }
-
-    // Insert discount section before the total
-    const cartSummary = cartItemsContainer.closest('.cart-container').querySelector('.cart-summary');
-    if (cartSummary) {
-        cartSummary.innerHTML = '';
-        cartSummary.appendChild(discountSection);
-    }
-
+    // Update total
+    const cartTotal = document.getElementById('cart-total');
     if (cartTotal) {
-        cartTotal.textContent = total.toFixed(2);
+        cartTotal.textContent = subtotal.toFixed(2);
     }
+
+    // Update progress bar
+    const progressBar = document.querySelector('.progress');
+    if (progressBar) {
+        const progressPercentage = Math.min((subtotal / 1000) * 100, 100);
+        progressBar.style.width = `${progressPercentage}%`;
+    }
+
+    // Setup quantity controls
+    setupQuantityControls();
+}
+
+function setupQuantityControls() {
+    const cartItemsContainer = document.getElementById('cart-items');
+    if (!cartItemsContainer) return;
+
+    cartItemsContainer.addEventListener('click', (e) => {
+        if (e.target.classList.contains('remove-btn')) {
+            const index = parseInt(e.target.dataset.index);
+            removeFromCart(index);
+        } else if (e.target.classList.contains('plus')) {
+            const index = parseInt(e.target.dataset.index);
+            updateQuantity(index, 1);
+        } else if (e.target.classList.contains('minus')) {
+            const index = parseInt(e.target.dataset.index);
+            updateQuantity(index, -1);
+        }
+    });
 }
 
 function addToCart(product) {
@@ -297,6 +260,7 @@ function addToCart(product) {
     
     localStorage.setItem('cart', JSON.stringify(cart));
     updateCartUI();
+    showNotification(`${product.name} added to cart!`);
 }
 
 function removeFromCart(index) {
@@ -320,8 +284,10 @@ function completeOrder() {
         cart = [];
         localStorage.setItem('cart', JSON.stringify(cart));
         updateCartUI();
+        closeCartPopup();
         showNotification('Order placed successfully!');
-    }
+    }
 }
+
 
 
