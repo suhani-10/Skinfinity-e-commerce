@@ -110,14 +110,14 @@ function showFirstOrderBanner() {
             <p>Get 10% off on your first order!</p>
         </div>
     ;
-    banner.style.cssText = `
+    banner.style.cssText = 
         background-color: #BA867B;
         color: white;
         text-align: center;
         padding: 10px;
         position: relative;
         z-index: 1000;
-    `;
+    ;
     document.body.insertBefore(banner, document.body.firstChild);
 }
 function showNotification(message) {
