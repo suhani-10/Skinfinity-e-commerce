@@ -104,12 +104,12 @@ document.addEventListener('DOMContentLoaded', () => {
 function showFirstOrderBanner() {
     const banner = document.createElement('div');
     banner.className = 'first-order-banner';
-    banner.innerHTML = `
+    banner.innerHTML = 
         <div class="offer-content">
             <h3>🎉 Special Offer for New Customers! 🎉</h3>
             <p>Get 10% off on your first order!</p>
         </div>
-    `;
+    ;
     banner.style.cssText = `
         background-color: #BA867B;
         color: white;
