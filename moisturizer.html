@@ -5,69 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skinfinity - Moisturizers</title>
     <link rel="stylesheet" href="moisturizer.css">
-    <link rel="stylesheet" href="cart.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <script defer src="cart.js"></script>
 </head>
 <body>
-    <!-- Side Cart Popup -->
-    <div id="sideCart" class="side-cart">
-        <div class="cart-header">
-            <h3>Your cart (<span id="cart-header-count">0</span>)</h3>
-            <button class="close-cart">×</button>
-        </div>
-
-        <div class="progress-bar">
-            <div class="progress"></div>
-        </div>
-        <div class="free-shipping-message">
-            Use code FLAT15 to Get FLAT 15% OFF & Shop for Rs.304 to get a FREE gift
-        </div>
-
-        <div id="cart-content">
-            <div id="cart-items" class="cart-items"></div>
-            
-            <div class="cart-summary">
-                <div class="summary-section">
-                    <div class="gift-section">
-                        <div class="gift-icon">🎁</div>
-                        <div class="gift-count">1 Gift</div>
-                        <div class="gift-divider"></div>
-                        <div class="gift-icon">🎁</div>
-                        <div class="gift-count">2 Gifts</div>
-                    </div>
-
-                    <div class="summary-row subtotal">
-                        <span>Total:</span>
-                        <span>₹<span id="cart-total">0</span></span>
-                    </div>
-
-                    <div class="flat-discount">
-                        Flat 15% OFF + Free Gifts at checkout
-                    </div>
-
-                    <div class="cart-actions">
-                        <button class="checkout-btn" onclick="window.location.href='checkout.html'">
-                            Checkout Now →
-                            <span class="extra-discount">Extra 3% off on Prepaid Order</span>
-                        </button>
-                    </div>
-
-                    <div class="payment-options">
-                        <img src="payment-options.png" alt="Payment Options">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="empty-cart" class="empty-cart" style="display: none;">
-            <p>Your cart is empty</p>
-            <a href="index.html" class="continue-shopping">Continue Shopping</a>
-        </div>
-    </div>
-
-    <!-- Cart Overlay -->
-    <div id="cartOverlay" class="cart-overlay"></div>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
@@ -87,10 +28,10 @@
                         <a class="nav-link active" href="moisturizer.html">Moisturizers</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.html"><i class="fas fa-user"></i></a>
+                        <a class="nav-link" href="#">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" id="cart-link">Cart 🛒 <span id="cart-count">0</span></a>
+                        <a class="nav-link" href="cart.html">Cart 🛒 <span id="cart-count">0</span></a>
                     </li>
                 </ul>
             </div>
@@ -207,6 +148,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 </body>
 </html>
